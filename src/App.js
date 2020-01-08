@@ -1,14 +1,20 @@
 import React from 'react';
 import Portal from './Portal'
-import '../node_modules/react-grid-layout/css/styles.css'
-import '../node_modules/react-resizable/css/styles.css'
 import './App.css'
 
 function App() {
   let config = {
-    isDraggable: true,
+    isDraggable: false,
     isResizable: true,
-    items: 12,
+    items: [
+      {"x":0,"y":0,"w":2,"h":4,"id":"0", com:{
+        type:'button'
+      }},
+      {"x":2,"y":0,"w":2,"h":2,"id":"1"},
+      {"x":4,"y":0,"w":2,"h":4,"id":"2"},
+      {"x":6,"y":0,"w":2,"h":4,"id":"3"},
+      {"x":8,"y":0,"w":2,"h":5,"id":"4"}
+    ],
     margin: [15, 15],
     rowHeight: 100
   };
@@ -17,7 +23,7 @@ function App() {
     config.rowHeight = 200;
   },3000);*/
   return (
-    <div class="App">
+    <div className="App">
       <Portal {...config}>
       </Portal>
     </div>
