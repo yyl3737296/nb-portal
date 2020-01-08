@@ -7,16 +7,16 @@ function App() {
     isDraggable: false,
     isResizable: true,
     items: [
-      {"x":0,"y":0,"w":2,"h":4,"id":"0", com:{
+      {"x":0,"y":0,"w":2,"h":1,"id":"0", com:{
         type:'button'
       }},
       {"x":2,"y":0,"w":2,"h":2,"id":"1"},
       {"x":4,"y":0,"w":2,"h":4,"id":"2"},
       {"x":6,"y":0,"w":2,"h":4,"id":"3"},
-      {"x":8,"y":0,"w":2,"h":5,"id":"4"}
+      {"x":8,"y":0,"w":4,"h":5,"id":"4"}
     ],
     margin: [15, 15],
-    rowHeight: 100
+    rowHeight: 30
   };
   /*setTimeout(function() {
     alert(2);

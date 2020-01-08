@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
+import './button.css'
  
 class NbButton extends Component {
   render() {
  
     return (
-      <button>react stateful button</button>
+      <button className="button">react stateful button</button>
     );
   }
 }

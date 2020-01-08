@@ -1,7 +1,7 @@
 import React from "react";
 import _ from "lodash";
 import RGL, { WidthProvider } from "react-grid-layout";
-import NbButton from './NbButton';
+import NbButton from './button/NbButton';
 
 const ReactGridLayout = WidthProvider(RGL);
 
