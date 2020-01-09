@@ -1,20 +1,30 @@
-.App {
+.nb-portal {
   width: 100%;
   overflow: hidden;
 }
 .react-grid-item {
   background: #ccc;
+  overflow: auto;
 }
 .App-logo {
   height: 40vmin;
   pointer-events: none;
 }
-.react-grid-layout {
-  margin-top: -15px;
-  margin-left: -15px;
-  margin-right: -15px;
-  width: calc(100% + 30px);
+.nb-portal>div {
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  width: calc(100% + 20px);
 }
+.react-grid-layout {
+  width: 100%;
+}
+/* .react-grid-layout {
+  margin-top: -10px;
+  margin-left: -10px;
+  margin-right: -10px;
+  width: calc(100% + 20px);
+} */
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
