@@ -2,6 +2,8 @@ import React from "react";
 import _ from "lodash";
 import RGL, { WidthProvider } from "react-grid-layout";
 import axios from 'axios';
+import Header from './Header';
+import Footer from './Footer';
 import NbButton from './button/NbButton';
 import NbInput from './input/NbInput';
 
@@ -25,7 +27,8 @@ export default class Portal extends React.PureComponent {
 
         const layout = this.props.items;
         const margin = [15, 15];
-        this.state = { layout, margin };
+        const header = [];
+        this.state = { layout, margin, header };
         this.getPortalData();
     }
 
@@ -37,19 +40,18 @@ export default class Portal extends React.PureComponent {
             if (margin) {
                 _this.setState({ margin: margin });
             }
-
-            _this.setState({ layout: items});
+            _this.setState({ layout: items, header: res.data.header});
             
         });
     }
 
-    getComponent(c) {
-        if (c && c.t === 'button') {
+    getComponent(type, data) {
+        if (type === 'button') {
             return (
-                <NbButton {...c.d}></NbButton>
+                <NbButton {...data}></NbButton>
             )
         }
-        else if (c && c.t === 'input') {
+        else if (type === 'input') {
             return (
                 <NbInput />
             )
@@ -59,16 +61,25 @@ export default class Portal extends React.PureComponent {
         }
     }
 
-    getComponentDOM(o) {
+    getGuId(){
+    return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+        var r = Math.random() * 16 | 0,
+            v = c == 'x' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+        }).toUpperCase();
+    }
 
-        //if (o.c) {
-            return (
-                <div key={o.id} data-grid={{ x: o.x, y: o.y, w: o.w, h: o.h }}>
-                    {this.getComponent(o.c)}
-                </div>
-            );
-        //}
-        return null;
+    getComponentDOM(obj) {
+        let comType = obj.type,
+            layout = obj.layout,
+            metaData = obj.metaData,
+            guId = this.getGuId();
+
+        return (
+            <div key={guId} data-grid={{ x: layout.x, y: layout.y, w: layout.w, h: layout.h }}>
+                {this.getComponent(comType, metaData)}
+            </div>
+        );
     }
 
     generateDOM() {
@@ -90,21 +101,23 @@ export default class Portal extends React.PureComponent {
         const style = {
             "marginLeft": `-${this.state.margin[0]}px`,
             "marginRight": `-${this.state.margin[0]}px`,
-            "marginTop": `-${this.state.margin[1]}px`,
             "width": `calc(100% + ${this.state.margin[0] * 2}px)`
         };
         return (
-            <div className="nb-portal">
-                <div style={style}>
-                    <ReactGridLayout
-                        layout={this.state.layout}
-                        onLayoutChange={this.onLayoutChange}
-                        margin={this.state.margin}
-                        {...this.props}
-                    >
-                        {this.generateDOM()}
-                    </ReactGridLayout>
+            <div>
+                <Header data={this.state.header}></Header>
+                <div className="nb-portal">
+                    <div style={style}>
+                        <ReactGridLayout
+                            onLayoutChange={this.onLayoutChange}
+                            margin={this.state.margin}
+                            {...this.props}
+                        >
+                            {this.generateDOM()}
+                        </ReactGridLayout>
+                    </div>
                 </div>
+                <Footer></Footer>
             </div>
         );
     }

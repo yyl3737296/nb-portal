@@ -1,0 +1,51 @@
+{
+    "header": {
+        "bg": "#000|url",
+        "bgType": "image|color",
+        "bgRepeat": "repeat|repeat-x|repeat-y|no-repeat",
+        "height": "200|auto",
+        "content": [{
+            "type": "a",
+            "left": 0,
+            "top": 100,
+            "href": "http://www.xxx.com",
+            "color": ""
+        },{
+            "type": "img",
+            "left": 0,
+            "top": 100,
+            "href": "http://www.xxx.com",
+            "color": ""
+        },{
+
+        }]
+    },
+    "footer": {
+        "bg": "",
+        "height": 200
+    },
+    "portalID": "",
+    "items": [{
+        "type": "button",
+        "metaData": {
+            "label": "siteTree"
+        },
+        "layout": {
+            "x": 0,
+            "y": 0,
+            "w": 3,
+            "h": 10
+        }
+    },{
+        "type": "button",
+        "metaData": {
+            "label": "map"
+        },
+        "layout": {
+            "x": 3,
+            "y": 0,
+            "w": 9,
+            "h": 10
+        }
+    }]
+}

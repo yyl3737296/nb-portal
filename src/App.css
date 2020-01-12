@@ -2,6 +2,14 @@
   width: 100%;
   overflow: hidden;
 }
+.nb-header,.nb-footer {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid #000;
+  min-height: 100px;
+  background:red;
+}
 .react-grid-item {
   background: #ccc;
   overflow: auto;
@@ -11,7 +19,6 @@
   pointer-events: none;
 }
 .nb-portal>div {
-  margin-top: -10px;
   margin-left: -10px;
   margin-right: -10px;
   width: calc(100% + 20px);
