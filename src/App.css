@@ -6,9 +6,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  border: 2px solid #000;
   min-height: 100px;
-  background:red;
 }
 .react-grid-item {
   background: #ccc;

@@ -4,21 +4,7 @@
         "bgType": "image|color",
         "bgRepeat": "repeat|repeat-x|repeat-y|no-repeat",
         "height": "200|auto",
-        "content": [{
-            "type": "a",
-            "left": 0,
-            "top": 100,
-            "href": "http://www.xxx.com",
-            "color": ""
-        },{
-            "type": "img",
-            "left": 0,
-            "top": 100,
-            "href": "http://www.xxx.com",
-            "color": ""
-        },{
-
-        }]
+        "content": "<a href='javascript:alert(2);'>asdfasdfasdfsd</a><img onclick='alert(2)'/><script>function aaa() {alert(2)}aaa()</script>"
     },
     "footer": {
         "bg": "",
@@ -37,7 +23,7 @@
             "h": 10
         }
     },{
-        "type": "button",
+        "type": "input",
         "metaData": {
             "label": "map"
         },

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import emitter from '../evt';
 import './button.css'
  
 class NbButton extends Component {
@@ -8,9 +9,14 @@ class NbButton extends Component {
   constructor(props) {
     super(props);
   }
+  handleClick() {
+    var data = true;
+    emitter.emit('nbInput11111', data);
+    
+  }
   render() {
     return (
-    <button className="nb-basic-button">{this.props.label}</button>
+    <button onClick={this.handleClick} className="nb-basic-button">{this.props.label}</button>
     );
   }
 }
